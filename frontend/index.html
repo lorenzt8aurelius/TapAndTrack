@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tap&Track - Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h1>Tap&Track</h1>
+    <p class="subtitle">QR Attendance Made Easy</p>
+
+    <!-- ✅ Add "method" and "name" attributes here -->
+    <form id="loginForm" method="POST">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username"   <!-- added -->
+          placeholder="Enter your username" 
+          required />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password"   <!-- added -->
+          placeholder="Enter your password" 
+          required />
+      </div>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <p class="note">Use your registered account to log in.</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
