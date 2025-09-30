@@ -42,3 +42,27 @@ document.getElementById("loginForm").addEventListener("submit", async function (
     alert("Something went wrong!");
   }
 });
+
+if (data.success) {
+  alert("Login successful! Role: " + data.role);
+
+  // Save role to localStorage
+  localStorage.setItem("userRole", data.role);
+
+  window.location.href = "dashboard.html";
+}
+
+if (data.success) {
+  alert("Login successful! Role: " + data.role);
+
+  // Redirect based on role
+  if (data.role === "student") {
+    window.location.href = "dashboard-student.html";
+  } else if (data.role === "teacher") {
+    window.location.href = "dashboard-teacher.html";
+  } else if (data.role === "admin") {
+    window.location.href = "dashboard-admin.html";
+  } else {
+    alert("Unknown role, contact system admin.");
+  }
+}
