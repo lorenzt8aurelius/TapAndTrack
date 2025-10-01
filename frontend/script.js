@@ -30,11 +30,11 @@ document.getElementById("loginForm").addEventListener("submit", async function (
 
     // 🔹 Redirect based on role
     if (role === "student") {
-      window.location.href = "dashboard-student.html";
+      window.location.href = "backend/dashboard-student.html";
     } else if (role === "teacher") {
-      window.location.href = "dashboard-teacher.html";
+      window.location.href = "backend/dashboard-teacher.html";
     } else if (role === "admin") {
-      window.location.href = "dashboard-admin.html";
+      window.location.href = "backend/dashboard-admin.html";
     } else {
       window.location.href = "dashboard.html"; // fallback
     }
