@@ -1,9 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const role = localStorage.getItem("userRole") || "Guest";
+  // Get user info from localStorage
+  const role = localStorage.getItem("role");
+  const username = localStorage.getItem("username");
 
-  document.getElementById("roleDisplay").innerText = `You are logged in as: ${role}`;
+  // Redirect to login if no role is found
+  if (!role) {
+    window.location.href = "../index.html";
+  }
 
   document.getElementById("logoutBtn").addEventListener("click", () => {
     localStorage.clear();
-    window.location.href = "index.html";
+    window.location.href = "../index.html"; // Go back to the login page
   });
+});

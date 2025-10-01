@@ -17,11 +17,11 @@ body {
 
 .login-container {
   background: #fff;
-  padding: 2rem;
+  padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   width: 100%;
-  max-width: 350px;
+  max-width: 400px;
   text-align: center;
 }
 
