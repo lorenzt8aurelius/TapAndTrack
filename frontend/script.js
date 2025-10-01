@@ -66,3 +66,31 @@ if (data.success) {
     alert("Unknown role, contact system admin.");
   }
 }
+
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  // 🔹 Simulated login logic (replace later with backend call)
+  let role = null;
+
+  if (username === "student" && password === "1234") {
+    role = "student";
+  } else if (username === "teacher" && password === "1234") {
+    role = "teacher";
+  } else if (username === "admin" && password === "1234") {
+    role = "admin";
+  } else {
+    alert("Invalid credentials!");
+    return;
+  }
+
+  // Save role in localStorage (so dashboard knows who is logged in)
+  localStorage.setItem("role", role);
+  localStorage.setItem("username", username);
+
+  // Redirect to dashboard
+  window.location.href = "dashboard.html";
+});
