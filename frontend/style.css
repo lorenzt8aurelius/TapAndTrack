@@ -77,6 +77,11 @@ body {
   color: #555;
 }
 
+.note a {
+  color: #3498db;
+  text-decoration: none;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
@@ -93,6 +98,14 @@ body {
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
   text-align: center;
+}
+
+.dashboard-container select,
+.login-container select {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 button {
