@@ -12,14 +12,31 @@ document.getElementById("loginForm").addEventListener("submit", async function (
   try {
     // 🔹 Simulated login (replace later with backend API call)
     let role = null;
+    let foundUser = false;
 
+    // 1. Check hardcoded default users
     if (username === "student" && password === "1234") {
       role = "student";
+      foundUser = true;
     } else if (username === "teacher" && password === "1234") {
       role = "teacher";
+      foundUser = true;
     } else if (username === "admin" && password === "1234") {
       role = "admin";
-    } else {
+      foundUser = true;
+    }
+
+    // 2. If not found, check registered users in localStorage
+    if (!foundUser) {
+      const registeredUsers = JSON.parse(localStorage.getItem("users")) || [];
+      const user = registeredUsers.find(u => u.username === username && u.password === password);
+      if (user) {
+        role = user.role;
+        foundUser = true;
+      }
+    }
+
+    if (!foundUser) {
       alert("Invalid credentials!");
       return;
     }
