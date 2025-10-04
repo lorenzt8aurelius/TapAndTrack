@@ -17,8 +17,32 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  document.getElementById("logoutBtn").addEventListener("click", () => {
+  const logoutBtn = document.getElementById("logoutBtn");
+  logoutBtn.addEventListener("click", () => {
     localStorage.clear();
     window.location.href = "../index.html"; // Go back to the login page
   });
+
+  // --- QR Code Generation Logic (for Teacher Dashboard) ---
+  const generateQrBtn = document.getElementById("generateQrBtn");
+  const qrcodeContainer = document.getElementById("qrcode");
+
+  if (generateQrBtn && qrcodeContainer) {
+    // Ensure QRCode library is loaded
+    if (typeof QRCode === "undefined") {
+        console.error("QRCode library is not loaded!");
+        return;
+    }
+
+    const qrCode = new QRCode(qrcodeContainer, {
+        width: 200,
+        height: 200,
+    });
+
+    generateQrBtn.addEventListener("click", () => {
+        const qrData = JSON.stringify({ classId: "CS101", timestamp: Date.now() });
+        qrCode.makeCode(qrData);
+        console.log("Generated QR Code with data:", qrData);
+    });
+  }
 });
