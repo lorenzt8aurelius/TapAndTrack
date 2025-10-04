@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "iuYO2tYirgg=",
-  "success": false,
+  "dgSpecHash": "bRgYpfvC8Es=",
+  "success": true,
   "projectFilePath": "C:\\Users\\loren\\OneDrive\\Documents\\QR Attendance (Tap and Track)\\NEW_QR_BASED_ATTENDANCE\\NEW_QR_BASED_ATTENDANCE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\loren\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
-    "C:\\Users\\loren\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0\\microsoft.entityframeworkcore.7.0.0.nupkg.sha512",
-    "C:\\Users\\loren\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0\\microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512",
-    "C:\\Users\\loren\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.0\\microsoft.entityframeworkcore.analyzers.7.0.0.nupkg.sha512",
-    "C:\\Users\\loren\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.0\\microsoft.entityframeworkcore.design.7.0.0.nupkg.sha512",
+    "C:\\Users\\loren\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.2\\microsoft.entityframeworkcore.7.0.2.nupkg.sha512",
+    "C:\\Users\\loren\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.2\\microsoft.entityframeworkcore.abstractions.7.0.2.nupkg.sha512",
+    "C:\\Users\\loren\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.2\\microsoft.entityframeworkcore.analyzers.7.0.2.nupkg.sha512",
+    "C:\\Users\\loren\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.2\\microsoft.entityframeworkcore.design.7.0.2.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.2\\microsoft.entityframeworkcore.relational.7.0.2.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
@@ -37,17 +37,5 @@
     "C:\\Users\\loren\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
     "C:\\Users\\loren\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore from 7.0.2 to 7.0.0. Reference the package directly from the project to select a different version. \r\n NEW_QR_BASED_ATTENDANCE -> Microsoft.EntityFrameworkCore.Design 7.0.0 -> Microsoft.EntityFrameworkCore.Relational 7.0.2 -> Microsoft.EntityFrameworkCore (>= 7.0.2) \r\n NEW_QR_BASED_ATTENDANCE -> Microsoft.EntityFrameworkCore (>= 7.0.0)",
-      "projectPath": "C:\\Users\\loren\\OneDrive\\Documents\\QR Attendance (Tap and Track)\\NEW_QR_BASED_ATTENDANCE\\NEW_QR_BASED_ATTENDANCE.csproj",
-      "filePath": "C:\\Users\\loren\\OneDrive\\Documents\\QR Attendance (Tap and Track)\\NEW_QR_BASED_ATTENDANCE\\NEW_QR_BASED_ATTENDANCE.csproj",
-      "libraryId": "Microsoft.EntityFrameworkCore",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  "logs": []
 }
