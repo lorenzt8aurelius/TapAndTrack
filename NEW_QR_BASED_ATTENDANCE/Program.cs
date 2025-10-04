@@ -1,32 +1,17 @@
-using Microsoft.EntityFrameworkCore;
-using NEW_QR_BASED_ATTENDANCE.Data;
+// This using statement is no longer needed here, it will be in your controllers.
+// using NEW_QR_BASED_ATTENDANCE.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Load connection string
-var connectionString = builder.Configuration.GetConnectionString("MySqlConn");
-
-// Register DbContext
-builder.Services.AddDbContext<AttendanceContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-
-// Add services
+// 1. Add services to the container.
 builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// CORS (for development, allow all)
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-    });
-});
-
 var app = builder.Build();
 
-// Middleware
+// 2. Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -34,11 +19,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors("AllowAll");
-app.UseAuthorization();
-app.MapControllers();
-app.Run();
 
-internal class AttendanceContext
-{
-}
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
