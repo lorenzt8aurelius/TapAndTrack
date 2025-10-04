@@ -8,33 +8,42 @@
 </head>
 <body>
   <div class="dashboard-container">
-    <h1>Welcome to Tap&Track</h1>
-    <p id="role-info">Loading your dashboard...</p>
+    <!-- This welcome message will be personalized by dashboard.js -->
+    <h1 id="welcomeMessage">Welcome!</h1>
+    <p id="role-info" class="subtitle">Loading your dashboard...</p>
 
+    <!-- Student-specific content -->
     <div class="dashboard-section" id="student-dashboard" style="display: none;">
       <h2>Student Dashboard</h2>
       <p>✅ View your attendance records.</p>
       <p>📌 Scan QR to mark your attendance.</p>
     </div>
 
+    <!-- Teacher-specific content (with QR generator merged in) -->
     <div class="dashboard-section" id="teacher-dashboard" style="display: none;">
       <h2>Teacher Dashboard</h2>
-      <p>📌 Generate QR codes for your classes.</p>
+      <p>Click the button to generate a unique QR code for your students to scan.</p>
+      <button id="generateQrBtn" class="btn">Generate QR Code</button>
+      <!-- The QR code will appear here -->
+      <div id="qrcode" style="margin-top: 20px; background: white; padding: 10px; display: none;"></div>
       <p>📊 View attendance reports of your students.</p>
     </div>
 
+    <!-- Admin-specific content -->
     <div class="dashboard-section" id="admin-dashboard" style="display: none;">
       <h2>Admin Dashboard</h2>
       <p>👤 Manage users (add/remove students & teachers).</p>
       <p>📌 Manage classes and view all attendance records.</p>
     </div>
 
-    <button onclick="logout()" class="btn">Logout</button>
+    <button id="logoutBtn" class="btn" style="margin-top: 20px;">Logout</button>
   </div>
 
-  <script>
-    // Simulated role (later from backend)
-    const userRole = localStorage.getItem("role") || "student"; 
+  <!-- Load libraries first, then our main dashboard script -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="dashboard.js"></script>
+  <script> // This small script remains to show/hide the correct div
+    const userRole = localStorage.getItem("role"); 
     const roleInfo = document.getElementById("role-info");
 
     if (userRole === "student") {
@@ -46,11 +55,6 @@
     } else if (userRole === "admin") {
       document.getElementById("admin-dashboard").style.display = "block";
       roleInfo.textContent = "You are logged in as Admin.";
-    }
-
-    function logout() {
-      localStorage.clear();
-      window.location.href = "index.html";
     }
   </script>
 </body>

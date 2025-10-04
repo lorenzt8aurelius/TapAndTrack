@@ -1,36 +1,49 @@
-document.getElementById("registerForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  const registerForm = document.getElementById("registerForm");
+  const registerMessage = document.getElementById("registerMessage"); // Ensure this element exists in your HTML
 
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const role = document.getElementById("role").value;
+  registerForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  if (!username || !password || !role) {
-    alert("Please fill in all fields.");
-    return;
-  }
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const role = document.getElementById("role").value;
 
-  // 🔹 In a real application, you would send this data to a backend server.
-  // For this simulation, we'll use localStorage.
-  const users = JSON.parse(localStorage.getItem("users")) || [];
+    // Reset message
+    registerMessage.textContent = "";
+    registerMessage.style.color = "red";
 
-  // Check if username already exists
-  const userExists = users.some(user => user.username === username);
-  if (userExists) {
-    alert("Username already exists. Please choose a different one.");
-    return;
-  }
+    if (!username || !password || !role) {
+      registerMessage.textContent = "Please fill in all fields.";
+      return;
+    }
 
-  // Add new user to the array
-  users.push({ username, password, role });
+    const registrationData = { username, password, role };
 
-  // Save updated users array back to localStorage
-  localStorage.setItem("users", JSON.stringify(users));
+    try {
+      // IMPORTANT: Update this URL to match your backend's running port.
+      const response = await fetch("https://localhost:7123/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(registrationData),
+      });
 
-  console.log("New user registered:", { username, role });
-  console.log("All users:", users);
+      if (response.ok) {
+        registerMessage.textContent = "Registration successful! Redirecting to login...";
+        registerMessage.style.color = "green";
 
-  // Show a success message and redirect to login.
-  alert("Registration successful! You can now log in.");
-  window.location.href = "index.html";
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 2000);
+      } else {
+        // Display server-side errors (e.g., "Username already exists.")
+        const errorText = await response.text();
+        registerMessage.textContent = errorText || "Registration failed. Please try again.";
+      }
+    } catch (error) {
+      // Handle network or server connection errors
+      registerMessage.textContent = "Could not connect to the server. Please make sure it's running.";
+      console.error("Network or server error:", error);
+    }
+  });
 });

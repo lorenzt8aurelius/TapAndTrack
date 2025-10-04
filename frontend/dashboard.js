@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // In a real app, you might get classId from a dropdown or user context
         const qrData = JSON.stringify({ classId: "CS101", timestamp: Date.now() });
         qrCode.makeCode(qrData);
+        qrcodeContainer.style.display = "inline-block"; // Show the QR code
         qrcodeContainer.style.display = "block"; // Show the QR code
         console.log("Generated QR Code with data:", qrData);
       });
